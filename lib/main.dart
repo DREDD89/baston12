@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart'; // Importa el paquete de Google Fonts
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6d3acf)),
         useMaterial3: true,
+        textTheme: GoogleFonts.robotoTextTheme(), // Usa Roboto como fuente predeterminada
       ),
       home: const MyHomePage(title: 'Bastón Inteligente'),
     );
@@ -50,7 +52,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF6d3acf),
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: GoogleFonts.roboto(), // Aplica Roboto al título del AppBar
+        ),
         leading: IconButton(
           icon: const Icon(Icons.menu, color: Colors.black),
           onPressed: () {
@@ -76,35 +81,32 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ListTile(
               leading: const Icon(Icons.person, color: Colors.blue),
-              title: const Text(
+              title: Text(
                 'Contactar usuario',
-                style: TextStyle(color: Colors.blue),
+                style: GoogleFonts.roboto(color: Colors.blue), // Aplica Roboto al texto
               ),
               onTap: () {
-                // Acción al presionar "Contactar usuario"
-                Navigator.pop(context); // Cerrar el menú
+                Navigator.pop(context);
               },
             ),
             ListTile(
               leading: const Icon(Icons.alarm, color: Colors.blue),
-              title: const Text(
+              title: Text(
                 'Hacer sonar el bastón',
-                style: TextStyle(color: Colors.blue),
+                style: GoogleFonts.roboto(color: Colors.blue), // Aplica Roboto al texto
               ),
               onTap: () {
-                // Acción al presionar "Hacer sonar el bastón"
-                Navigator.pop(context); // Cerrar el menú
+                Navigator.pop(context);
               },
             ),
             ListTile(
               leading: const Icon(Icons.emergency, color: Colors.blue),
-              title: const Text(
+              title: Text(
                 'Llamar emergencia',
-                style: TextStyle(color: Colors.blue),
+                style: GoogleFonts.roboto(color: Colors.blue), // Aplica Roboto al texto
               ),
               onTap: () {
-                // Acción al presionar "Llamar emergencia"
-                Navigator.pop(context); // Cerrar el menú
+                Navigator.pop(context);
               },
             ),
           ],
@@ -112,7 +114,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Stack(
         children: [
-          // Imagen de fondo que simula un mapa
           Center(
             child: Image.asset(
               'assets/mapa_fondo.jpg',
@@ -121,8 +122,6 @@ class _MyHomePageState extends State<MyHomePage> {
               height: double.infinity,
             ),
           ),
-
-          // Botones inferiores
           Positioned(
             bottom: 50,
             left: 20,
@@ -130,7 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                //sonar el bastón
                 GestureDetector(
                   onTap: _toggleBotonBaston,
                   child: Container(
@@ -151,7 +149,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                 ),
-                // Botón de emergencia
                 GestureDetector(
                   onTap: _toggleBotonEmergencia,
                   child: Container(
