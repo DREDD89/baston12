@@ -130,7 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                // sonar el bastón
+                //sonar el bastón
                 GestureDetector(
                   onTap: _toggleBotonBaston,
                   child: Container(
